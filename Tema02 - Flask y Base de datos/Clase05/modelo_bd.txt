@@ -1,0 +1,47 @@
+Table generos {
+  id integer [primary key]
+  nombre varchar(100)
+}
+
+Table autores {
+  id integer [primary key]
+  nombres varchar(100)
+  nacionalidad varchar(25)
+  fecha_nacimiento date
+}
+
+Table libros {
+  id integer [primary key]
+  titulo varchar(150)
+  autor_id integer
+  genero_id integer
+  isbn varchar(25)
+  anio_publicacion smallint(4)
+  prestado char(1)
+}
+
+Table usuarios {
+  id integer [primary key]
+  nombre varchar(150)
+  email varcha(100)
+  fecha_registro datetime
+}
+
+Table prestamos {
+  id integer [primary key]
+  usuario_id integer
+  fecha_prestamo datetime
+  fecha_devolucion datetime
+  estado char(1)
+}
+
+Table prestamo_libros {
+  prestamo_id integer
+  libro_id integer
+}
+
+Ref: libros.autor_id > autores.id
+Ref: libros.genero_id > generos.id
+Ref: prestamos.usuario_id > usuarios.id
+Ref: prestamo_libros.prestamo_id > prestamos.id
+Ref: prestamo_libros.libro_id > libros.id
