@@ -1,8 +1,7 @@
 from flask import Flask
 from flask_migrate import Migrate
 from flask_jwt_extended import JWTManager
-from extensions import mail
-from models import db
+from extensions import db, mail
 from dotenv import load_dotenv
 import os
 
