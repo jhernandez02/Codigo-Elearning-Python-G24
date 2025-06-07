@@ -1,0 +1,13 @@
+# Creación del proyecto
+python -m venv .venv
+.venv\Scripts\activate
+pip install -r requirements.txt
+
+# Migraciones de la BD
+flask db migrate -m "Nueva columna password_hash"
+flask db upgrade
+
+# Levantar la aplicación
+flask run --debug
+- Desde el navegador ejectuar la siguiente url:
+localhost:5000
