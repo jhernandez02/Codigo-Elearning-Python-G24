@@ -1,0 +1,9 @@
+python -m unittest test/test_ejemplos.py
+python -m unittest test/test_comparacion.py
+python -m unittest test/test_up_down.py
+python -m unittest test/test_suma.py
+python modules/primo.py
+python -m unittest test/test_primos.py
+python modules/factorial.py
+python -m unittest test/test_factorial.py
+python -m unittest test/test_todo.py
