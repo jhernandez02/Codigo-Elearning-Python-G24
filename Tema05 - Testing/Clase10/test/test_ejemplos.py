@@ -28,13 +28,6 @@ class TestEjemplos(unittest.TestCase):
         b = a
         self.assertIs(a,b)
     
-    def test_is(self):
-        # assertIs(a,b) => Verifica que ambas variables son la misma
-        a = [1,2,3]
-        b = a
-        c = [1,2,3]
-        self.assertIs(a,b)
-    
     def test_is_not(self):
         # assertIsNot(a,b) => Verifica que ambas variables sean distintas
         a = [1,2,3]
