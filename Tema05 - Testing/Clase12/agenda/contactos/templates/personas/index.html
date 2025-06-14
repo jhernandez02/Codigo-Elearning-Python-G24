@@ -1,0 +1,8 @@
+<h1>Personas</h1>
+<ul>
+{% for persona in personas %}
+    <li>
+        <a href="/personas/detalle/{{persona.id}}">{{persona.nombres}} {{persona.apellidos}}</a>
+    </li>
+{% endfor %}
+</ul>

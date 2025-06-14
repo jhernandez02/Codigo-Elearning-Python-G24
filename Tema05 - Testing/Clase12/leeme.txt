@@ -1,0 +1,31 @@
+1. Crear el entorno virtual
+python -m venv .venv
+
+2. Activar el entorno virtual
+.venv\Scripts\activate
+
+3. Instalar los paquetes
+pip install -r requirements.txt
+
+4. Crear un nuevo proyecto
+django-admin startproject agenda
+
+5. Ingresar a la carpeta del proyecto agenda
+cd agenda
+
+6. Levantar el servidor de desarrollo
+python manage.py runserver
+
+7. Crea una aplicación
+python manage.py startapp contactos
+
+8. Ejecutar las migraciones
+python manage.py migrate
+
+9. Crear un usuario administrador
+python manage.py createsuperuser
+
+10. Registar las aplicaciones creadas en el archivo settings.py
+
+11. Generar  migraciones
+python manage.py makemigrations
