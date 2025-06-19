@@ -1,0 +1,71 @@
+1. Crear el entorno virtual
+python -m venv .venv
+
+2. Activar el entorno virtual
+.venv\Scripts\activate
+
+3. Instalar los paquetes
+pip install -r requirements.txt
+
+4. Crear la carpeta api-serie y luego crear un nuevo proyecto
+django-admin startproject app api-serie
+
+5. Ingresar a la carpeta del proyecto agenda
+cd api-serie
+
+6. Levantar el servidor de desarrollo
+python manage.py runserver
+
+7. Crea una aplicación
+python manage.py startapp series
+
+8. Registar las aplicaciones creadas en el archivo settings.py
+
+INSTALLED_APPS = [
+    'django.contrib.admin',
+    'django.contrib.auth',
+    'django.contrib.contenttypes',
+    'django.contrib.sessions',
+    'django.contrib.messages',
+    'django.contrib.staticfiles',
+    'rest_framework',
+    'rest_framework_simplejwt',
+    'corsheaders',
+    'series'
+]
+
+9. Ejecutar las migraciones
+python manage.py migrate
+
+10. Crear un usuario administrador
+python manage.py createsuperuser
+
+11. Definir los modelos, generar las migraciones, luego ejecutarlas
+python manage.py makemigrations
+python manage.py migrate
+
+12. Registar los modelos en el archivo series/admin.py
+
+from django.contrib import admin
+from .models import Categoria, Serie
+
+# Register your models here.
+admin.site.register(Categoria)
+admin.site.register(Serie)
+
+13. Desarrollar los siguiente endpoints:
+
+api/v1/categorias/          [GET]   => Muestra el listado de las categorías
+api/v1/categorias/<int:id>  [GET]   => Muestra el detalle de una categoría
+api/v1/categorias/          [POST]  => Guardar una categoría
+api/v1/categorias/<int:id>  [PUT]   => Actualizar una categoría
+api/v1/categorias/<int:id>  [DELETE]=> Eliminar una categoría
+
+api/v1/categorias/<int:id>/series/ [GET]   => Muestra el listado de series por categorías
+
+api/v1/series/             [GET]   => Muestra el listado de las series
+api/v1/series/<int:id>     [GET]   => Muestra el detalle de una series
+api/v1/series/             [POST]  => Guardar una series
+api/v1/series/<int:id>     [PUT]   => Actualizar una series
+api/v1/series/<int:id>     [DELETE]=> Eliminar una series
+
