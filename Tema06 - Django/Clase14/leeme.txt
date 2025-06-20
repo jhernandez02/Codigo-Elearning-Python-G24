@@ -1,0 +1,39 @@
+1. Crear el entorno virtual
+python -m venv .venv
+
+2. Activar el entorno virtual
+.venv\Scripts\activate
+
+3. Instalar los paquetes
+pip install -r requirements.txt
+
+4. Ingresar a la carpeta del proyecto
+cd api-serie
+
+5. Agregar la configuración de REST_FRAMEWORK y SIMPLE_JWT en settings.py
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
+    ),
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.IsAuthenticated',
+    ],
+}
+
+SIMPLE_JWT = {
+    "ACCESS_TOKEN_LIFETIME": timedelta(minutes=240),
+}
+
+6. Crea una aplicación
+python manage.py startapp autenticacion
+
+7. Desde el administrador web, crear 2 usuarios:
+kmendoza/codigo2025
+plinares/codigo2025
+
+8. Generar las migraciones
+python manage.py makemigrations
+
+9. Ejecutar las migraciones
+python manage.py migrate
