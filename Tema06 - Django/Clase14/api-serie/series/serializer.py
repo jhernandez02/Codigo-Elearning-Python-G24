@@ -24,3 +24,13 @@ class FavoritoSerializer(serializers.ModelSerializer):
         fields=('__all__')
         # El usuario no puede enviar o modificar el campo usuario
         read_only_fields = ['usuario']
+    
+    def validate(self, data):
+        # Obtenemos el usuario que solicita la petición por medio del token
+        user = self.context['request'].user
+        # Obtenemos el id de la seria enviada por el body de la petición
+        serie = data['serie']
+        if Favorito.objects.filter(usuario=user,serie=serie).exists():
+            raise serializers.ValidationError("Esta serie ya se guardó como favorita.")
+        return data
+

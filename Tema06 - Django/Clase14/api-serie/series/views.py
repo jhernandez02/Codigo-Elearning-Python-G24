@@ -34,3 +34,10 @@ class FavoritoListView(generics.ListAPIView):
         # Se obtiene el nombre del usuario del token enviado 
         print(self.request.user)
         return Favorito.objects.filter(usuario=self.request.user)
+
+class FavoritoCreateView(generics.CreateAPIView):
+    serializer_class = FavoritoSerializer
+
+    def perform_create(self, serializer):
+        serializer.save(usuario=self.request.user)
+

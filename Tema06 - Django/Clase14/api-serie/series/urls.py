@@ -10,4 +10,5 @@ urlpatterns = [
     path('v1/', include(router.urls)),
     path('v1/categorias/<int:categoria_id>/series/', views.SeriePorCategoria.as_view()),
     path('v1/favoritos/', views.FavoritoListView.as_view()),
+    path('v1/favoritos/crear/', views.FavoritoCreateView.as_view()),
 ]
