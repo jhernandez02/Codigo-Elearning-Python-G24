@@ -1,0 +1,10 @@
+# Crear el proyecto en React con vite
+npm create vite@latest app-series -- --template react
+
+# Instalar las dependencias y ejecutar la aplicación
+cd app-series
+npm install
+npm run dev
+
+# Instalar las siguiente dependencias
+npm install react-router-dom axios bootstrap react-bootstrap sweetalert2 jwt-decode
