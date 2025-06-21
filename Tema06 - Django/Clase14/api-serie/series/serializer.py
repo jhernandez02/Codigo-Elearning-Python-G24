@@ -11,6 +11,8 @@ class CategoriaSerializer(serializers.ModelSerializer):
         fields=('id','descripcion')
 
 class SerieSerializer(serializers.ModelSerializer):
+    nombre_categoria = serializers.CharField(source='categoria.descripcion', read_only=True)
+
     class Meta:
         model=Serie
         fields=('__all__')
@@ -18,6 +20,7 @@ class SerieSerializer(serializers.ModelSerializer):
 class FavoritoSerializer(serializers.ModelSerializer):
     nombre_usuario = serializers.CharField(source='usuario.username', read_only=True)
     nombre_serie = serializers.CharField(source='serie.nombre', read_only=True)
+    nombre_categoria = serializers.CharField(source='serie.categoria.descripcion', read_only=True)
     
     class Meta:
         model=Favorito

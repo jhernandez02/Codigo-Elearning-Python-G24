@@ -24,7 +24,6 @@ function LoginPage(){
     	e.preventDefault();
     	try {
         	const result = await loginUsuarioService(credenciales);
-        	console.log(result);
             login(credenciales.username, result.data.access);
         	navigate("/principal");
     	} catch (error) {

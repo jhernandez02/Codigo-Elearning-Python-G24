@@ -4,6 +4,7 @@ import CabeceraComponent from './components/CabeceraComponent';
 import LoginPage from './pages/LoginPage';
 import PrincipalPage from './pages/PrincipalPage';
 import SeriePage from './pages/SeriePage';
+import FavofitoPage from './pages/FavoritoPage';
 import './App.css';
 
 function App() {
@@ -15,6 +16,7 @@ function App() {
           <Route path='/' element={<LoginPage />} />
           <Route path='/principal' element={<PrincipalPage />} />
           <Route path='/serie/:id' element={<SeriePage />} />
+          <Route path='/favoritos' element={<FavofitoPage />} />
           <Route path='*' element={<h4 className='mt-3 text-center'>Error 404 - Página no encontrada</h4>} />
         </Routes>
       </AppProvider>

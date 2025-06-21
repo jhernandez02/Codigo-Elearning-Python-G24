@@ -26,10 +26,13 @@ function CabeceraComponent() {
                 <li className="nav-item">
                     <Link to="/principal" className="nav-link">Inicio</Link>
                 </li>
+                <li className="nav-item">
+                    <Link to="/favoritos" className="nav-link">Favoritos</Link>
+                </li>
             </Nav>
             <Navbar.Text>
               <div className="me-3">
-                Bienvenido {usuario} | <a onClick={handleLogout} href="#" className="text-secondary">Salir</a>
+                <i className="bi bi-person-circle"></i> {usuario} | <a onClick={handleLogout} href="#" className="text-secondary">Salir</a>
               </div>
             </Navbar.Text>
           </Navbar.Collapse>

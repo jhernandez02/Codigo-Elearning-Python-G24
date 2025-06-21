@@ -41,3 +41,8 @@ class FavoritoCreateView(generics.CreateAPIView):
     def perform_create(self, serializer):
         serializer.save(usuario=self.request.user)
 
+class FavoritoDeleteView(generics.DestroyAPIView):
+    serializer_class = FavoritoSerializer
+
+    def get_queryset(self):
+        return Favorito.objects.filter(usuario=self.request.user)

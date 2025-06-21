@@ -4,16 +4,18 @@ const AppContext = React.createContext();
 const { Provider, Consumer } = AppContext;
 
 function AppProvider({children}){
-    let [usuario, setUsuario] = useState(null);
-    let [token, setToken] = useState(null);
+    let [usuario, setUsuario] = useState(localStorage.usuario || null);
+    let [token, setToken] = useState(localStorage.token || null);
 
     function login(usuario, token){
+        localStorage.setItem('usuario', usuario);
         localStorage.setItem('token', token);
         setUsuario(usuario);
         setToken(token);
     }
 
     function logout(){
+        localStorage.removeItem('usuario');
         localStorage.removeItem('token');
         setUsuario(null);
         setToken(null);

@@ -29,11 +29,11 @@ function PrincipalPage(){
                 <div className="mt-4 row">
                     {lista.map(serie=>(
                         <div key={serie.id} className="col-md-3">
-                            <Card className="mb-4">
-                                <Card.Img variant="top" src="https://placehold.co/300x200" />
+                            <Card className="mb-4 p-0">
+                                <Card.Img variant="top" className="w-100" src="https://placehold.co/300x200" />
                                 <Card.Body>
                                     <Card.Title>{serie.nombre}</Card.Title>
-                                    <Link to={`/serie/${serie.id}`} className="btn btn-primary">Ver detalle</Link>
+                                    <Link to={`/serie/${serie.id}`} className="btn btn-primary w-100">Ver detalle</Link>
                                 </Card.Body>
                             </Card>
                         </div>
