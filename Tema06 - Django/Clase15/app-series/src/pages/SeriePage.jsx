@@ -4,6 +4,7 @@ import { mostrarSerieService } from "../services/SerieService";
 import { guardarFavoritoService } from "../services/FavoritoService";
 import Spinner from "react-bootstrap/Spinner";
 import Swal from "sweetalert2";
+import StarRating from "../components/StarRating";
 
 const initData = {
     id: 0,
@@ -56,6 +57,12 @@ function SeriePage(){
         }
         
     };
+    
+    const formatearFecha = (fechaISO) => {
+        const meses = ['enero','febrero','marzo','abril','mayo','junio','julio','agosto','septiembre','octubre','noviembre','diciembre']
+        const [año, mes, día] = fechaISO.split('-');
+        return `${día} de ${meses[mes-1]} de ${año}`;
+    }
 
     return(
         <section className="container py-5">
@@ -71,8 +78,8 @@ function SeriePage(){
                     </div>
                     <div className="col-md-6">
                         <h2>{serie.nombre}</h2>
-                        <p><strong>Fecha lanzamiento:</strong> {serie.fecha_lanzamiento}</p>
-                        <p><strong>Rating:</strong> {serie.puntaje}</p>
+                        <p><strong>Fecha lanzamiento:</strong> {formatearFecha(serie.fecha_lanzamiento)}</p>
+                        <p><strong>Rating:</strong> <StarRating rating={serie.puntaje} /></p>
                         <p><strong>Categoría:</strong> {serie.nombre_categoria}</p>
                         <button onClick={()=>agregarSerie(serie.id)} className="btn btn-success mt-2 fs-4 w-100">
                             <i className="bi bi-plus-circle"></i> Agregar a favoritos
