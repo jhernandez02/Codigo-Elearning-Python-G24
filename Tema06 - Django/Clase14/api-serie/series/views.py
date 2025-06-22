@@ -30,19 +30,28 @@ class SeriePorCategoria(APIView):
 class FavoritoListView(generics.ListAPIView):
     serializer_class = FavoritoSerializer
 
+    # Implementamos el resultado de la consulta para que devuelva el conjuto de datos (queryset) 
+    # que se va a listar
     def get_queryset(self):
         # Se obtiene el nombre del usuario del token enviado 
         print(self.request.user)
+        # Filtramos solo los dato del usuario que ha solicitado la petición
         return Favorito.objects.filter(usuario=self.request.user)
 
 class FavoritoCreateView(generics.CreateAPIView):
     serializer_class = FavoritoSerializer
 
+    # perform_create se ejecuta justo despues que los datos han sido validados y antes de enviar la respuesta
+    # Personalizamos el comportamiento del guardado
     def perform_create(self, serializer):
+        # Asignamos el valor del campo usuario
         serializer.save(usuario=self.request.user)
 
 class FavoritoDeleteView(generics.DestroyAPIView):
     serializer_class = FavoritoSerializer
 
+    # Implementamos la consulta para definir de donde se va a buscar el objeto
+    # que se quiere eliminar
     def get_queryset(self):
+        # Filtramos solo los datos del usuario que ha solicitado la petición
         return Favorito.objects.filter(usuario=self.request.user)
