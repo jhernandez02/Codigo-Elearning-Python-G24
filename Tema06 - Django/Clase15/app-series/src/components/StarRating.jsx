@@ -1,5 +1,5 @@
 const StarRating = ({ rating }) => {
-  // Redondeamos hacia abajo para evitar medias estrellas (si necesitas medias, avísame)
+  // Redondeamos hacia abajo para evitar medias estrellas
   const stars = [];
 
   for (let i = 1; i <= 5; i++) {
