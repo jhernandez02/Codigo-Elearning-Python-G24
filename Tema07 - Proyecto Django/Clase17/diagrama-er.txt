@@ -1,0 +1,44 @@
+Table User {
+  id integer [primary key]
+  username varchar
+  password varchar
+}
+
+Table Categoria {
+  id integer [primary key]
+  nombre varchar
+}
+
+Table Producto {
+  id integer [primary key]
+  categoria integer
+  nombre varchar
+  descripcion varchar
+  precio float
+  imagen varchar
+  stock integer
+}
+
+Table Pedido {
+  id integer [primary key]
+  cliente integer
+  codigo varchar
+  total float
+  estado varchar
+  fecha_venta timestamp
+}
+
+Table PedidoDetalle {
+  id integer [primary key]
+  pedido integer
+  producto integer
+  cantidad varchar
+  precio float
+  subtotal float
+}
+
+Ref: Producto.categoria > Categoria.id // many-to-one
+Ref: Pedido.cliente > User.id // many-to-one
+
+Ref: Pedido.id < PedidoDetalle.pedido
+Ref: Producto.id < PedidoDetalle.producto

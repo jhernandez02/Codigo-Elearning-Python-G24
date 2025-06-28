@@ -1,0 +1,15 @@
+{
+    "codigo": "V-0000-0011",
+    "detalles": [
+        {
+            "producto": 3,
+            "cantidad": 2,
+            "precio": 780.0
+        },
+        {
+            "producto": 5,
+            "cantidad": 1,
+            "precio": 1200.0
+        }
+    ]
+}

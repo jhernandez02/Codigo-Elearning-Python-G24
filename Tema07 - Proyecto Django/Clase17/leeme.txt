@@ -1,0 +1,34 @@
+# Crear el entorno virtual
+python -m venv .venv
+
+# Activar el entorno virtual
+.venv\Scripts\activate
+
+# Instalar los requerimientos
+pip install -r requirements.txt
+
+# Crear la carpeta api-ecommerce y luego crear un nuevo proyecto
+django-admin startproject app api-ecommerce
+
+# Ingresar a la carpeta del proyecto api-ecommerce
+cd api-ecommerce
+
+# Levantar el servidor de desarrollo
+python manage.py runserver
+
+# Ejecutar las migraciones
+python manage.py migrate
+
+# Crear un usuario administrador
+python manage.py createsuperuser
+
+# Crear las aplicaciones:
+python manage.py startapp almacen
+python manage.py startapp ventas
+python manage.py startapp autenticacion
+
+# Registrar las aplicaciones creadas en settings.py
+
+# Definir los modelos, generar y ejecutar las migraciones
+python manage.py makemigrations
+python manage.py migrate
