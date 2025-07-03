@@ -1,0 +1,11 @@
+Frontend -> JavaScript
+document.getElementById('')
+alert()
+confirm()
+NO hay conexión a Base de Datos
+console.log() -> se muestra en el Navegador
+
+Backend con Node.js -> Javascript
+No maneja DOM
+SI hay conexión a Base de Datos
+console.log() -> se muestra en la consola del servidor
