@@ -1,0 +1,15 @@
+# Generar el archivo package.json 
+npm init -y
+
+# Instalar los siguientes paquetes
+npm install -D nodemon prisma
+npm install express @prisma/client
+
+# Inicializar Prisma
+npx prisma init
+
+# Ejecutar la migración
+npx prisma migrate dev --name init
+
+# Ejecutar la migración
+npx prisma generate

@@ -1,0 +1,6 @@
+# Generar el archivo package.json 
+npm init -y
+
+# Instalar los siguiente paquetes
+npm install express
+npm install -D nodemon
