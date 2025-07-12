@@ -1,0 +1,10 @@
+# Instalar dependencias
+npm init -y
+npm install -D prima nodemon
+npm install express @prisma/client cors dotenv @aws-sdk/client-s3 multer
+
+# Inicializar prisma
+npx prisma init
+
+# Ejecutar la migración
+npx prisma migrate dev --name init
