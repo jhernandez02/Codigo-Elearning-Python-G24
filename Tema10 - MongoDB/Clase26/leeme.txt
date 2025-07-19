@@ -1,0 +1,14 @@
+# Comando MongoDB
+
+- Lista todas las base de datos:
+show dbs
+
+- Seleccionar la base de datos
+use <nombre_base_datos>
+
+- Listar todas las colecciones de una base de datos
+show collections
+
+- Listar todos los documentos de una colección:
+db.<nombre_coleccion>.find();
+Ej: db.alumnos.find();
