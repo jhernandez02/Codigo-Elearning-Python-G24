@@ -1,0 +1,39 @@
+- PROYECTO API-FLASK-DOCKER
+
+# Crear la imagen
+docker build -t flask-docker-base .
+
+# Crear y ejecutar el contenedor en el puerto 5000
+docker run -p 5000:5000 flask-docker-base
+
+# Crear y ejecutar el contenedor con nombre
+docker run -p 5000:5000 --name flask-contenedor-base flask-docker-base
+
+# Crear y ejecutar el contenedor con volumen
+docker run -p 5000:5000 --name flask-contenedor-base -v .:/app flask-docker-base
+
+# Listar los contenedores activos
+docker ps
+
+# Detener el contenedor
+docker stop flask-contenedor-base
+
+# Iniciar el contenedor
+docker start flask-contenedor-base
+
+- PROYECTO API-NODE-DOCKER
+
+# Crear la imagen
+docker build -t node-docker-base .
+
+# Crear y ejecutar el contenedor en segundo plano con 2 volumenes
+docker run -d -p 3000:3000 --name node-contenedor-ejemplo -v .:/app -v /app/node_modules node-docker-base
+
+# Detener el contenedor
+docker stop node-contenedor-ejemplo
+
+# Eliminar un contenedor
+docker rm node-contenedor-ejemplo
+
+# Construir el contenedor con docker-compose
+docker-compose up --build

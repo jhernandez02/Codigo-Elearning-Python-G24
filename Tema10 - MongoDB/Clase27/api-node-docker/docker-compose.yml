@@ -1,0 +1,11 @@
+services:
+  app:
+    build: .
+    image: node-docker-base
+    container_name: node-contenedor-compose
+    ports:
+      - "3000:3000"
+    working_dir: /app
+    volumes:
+      - .:/app            # Sincroniza archivos locales
+      - /app/node_modules # Evita sobrescribir node_modules del contenedor
